@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y \
   git \
   curl \
   rlwrap \
-  openssh-server \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #install node from nodesource
@@ -29,6 +28,7 @@ RUN mkdir /usr/games/minecraft \
 RUN cd /usr/games/minecraft \
   && apt-get update \
   && apt-get install -y build-essential \
+  && apt-get install -y vim \
   && npm install \
   && apt-get remove --purge -y build-essential \
   && apt-get autoremove -y \
@@ -43,5 +43,5 @@ CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 8443 25565-25570 22
+EXPOSE 8443 25565-25570
 VOLUME /var/games/minecraft
