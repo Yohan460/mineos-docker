@@ -1,5 +1,5 @@
 FROM ubuntu:wily
-MAINTAINER William Dizon <wdchromium@gmail.com>
+MAINTAINER Johan McGwire <Yohan460@gmail.com>
 
 #update and accept all prompts
 RUN apt-get update && apt-get install -y \
